@@ -145,7 +145,7 @@ def build_heart_features(
     Build feature array for heart disease prediction.
     
     Returns:
-        tuple: (features_array, bmi_value) where features_array has shape (1, 12)
+        tuple: (features_array, bmi_value) where features_array has shape (1, 13)
     """
     # Calculate BMI
     height_m = height_cm / 100
@@ -155,9 +155,10 @@ def build_heart_features(
     gender_numeric = 1 if gender == "Male" else 2
     
     # Create feature array matching the order from cleaned_heart.csv
-    # Order: age, gender, height, weight, systolic_bp, diastolic_bp, cholesterol, gluc, smoke, alco, active, bmi
+    # Order: id, age, gender, height, weight, systolic_bp, diastolic_bp, cholesterol, gluc, smoke, alco, active, bmi
     features = np.array([
         [
+            0,  # id placeholder
             age,
             gender_numeric,
             height_cm,
